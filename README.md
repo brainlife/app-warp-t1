@@ -31,7 +31,7 @@ We kindly ask that you cite the following articles when publishing papers and co
 You can submit this App online at https://doi.org/10.25663/brainlife.app.448 via the “Execute” tab.
 
 Input: \
-T1w image and Diffusion Tensor Image Scalars (tensor datatype) in the same anatomical space. Up to now, supported scalars are: FA (Fractional Anisotropy), MD (Mean Diffusivity), RD (Radial Diffusivity), and AD (Axial Diffusivity).
+T1 image and Diffusion Tensor Image Scalars (tensor datatype) in the same anatomical space. Up to now, supported scalars are: FA (Fractional Anisotropy), MD (Mean Diffusivity), RD (Radial Diffusivity), and AD (Axial Diffusivity).
 
 Output: \
 T1 image and Diffusion Tensor Image Scalars (tensor datatype) warped.
