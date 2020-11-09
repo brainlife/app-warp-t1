@@ -20,7 +20,7 @@ for file_path in ${tensor_dir}/*; do
 	warp_dir/warp.nii.gz \
 	warp_dir/affine.txt  --use-NN
 
-    echo "${OUT}/${filename} saved."	
+    echo -e "${OUT}/${filename} saved.\n"	
 
 done
 
