@@ -1,0 +1,31 @@
+#!/bin/bash
+#PBS -k o
+#PBS -l nodes=1:ppn=4,walltime=00:10:00
+
+t1=`jq -r '.t1' config.json`
+
+mkdir -p tensor_dir
+cp `jq -r '.fa' config.json` tensor_dir/fa.nii.gz
+cp `jq -r '.md' config.json` tensor_dir/md.nii.gz
+cp `jq -r '.rd' config.json` tensor_dir/rd.nii.gz
+cp `jq -r '.ad' config.json` tensor_dir/ad.nii.gz
+
+mkdir -p warp_dir
+cp `jq -r '.warp' config.json` warp_dir/warp.nii.gz
+cp `jq -r '.affine' config.json` warp_dir/affine.txt
+
+# Registration
+echo "T1 warping..."
+singularity exec -e docker://brainlife/ants:2.2.0 ./run_t1_registration.sh $t1 warp_dir
+
+echo "Tensor warping..."
+singularity exec -e docker://brainlife/ants:2.2.0 ./run_tensor_registration.sh tensor_dir warp_dir
+
+ret=$?
+if [ ! $ret -eq 0 ]; then
+	echo "Registration failed"
+	echo $ret > finished
+	exit $ret
+fi
+
+echo "Completed."
