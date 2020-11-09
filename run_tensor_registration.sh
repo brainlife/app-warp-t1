@@ -10,15 +10,17 @@ warp_dir=$2
 mkdir -p tensor_aligned
 OUT=tensor_aligned
 
-for filename in ${tensor_dir}/*; do
+for file_path in ${tensor_dir}/*; do
 
-WarpImageMultiTransform 3  \
-	$filename \
+    filename=$(basename $file_path)
+
+    WarpImageMultiTransform 3  \
+    	$file_path \
 	${OUT}/${filename} \
 	warp_dir/warp.nii.gz \
 	warp_dir/affine.txt  --use-NN
 
-echo "${OUT}/${filename} saved."	
+    echo "${OUT}/${filename} saved."	
 
 done
 
