@@ -10,7 +10,7 @@ warp_dir=$2
 mkdir -p tensor_aligned
 OUT=tensor_aligned
 
-for filename in ${tensor_dir}; do
+for filename in ${tensor_dir}/*; do
 
 WarpImageMultiTransform 3  \
 	$filename \
