@@ -18,6 +18,6 @@ else
 		echo "T1 warping failed."
 		exit 1
 	else    
-		echo "T1 warping done."
+		echo -e "T1 warping done.\n"
 	fi    	
 fi
