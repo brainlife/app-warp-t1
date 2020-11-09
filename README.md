@@ -60,5 +60,4 @@ The main outputs of this App are the T1 and the Diffusion Tensor Image Scalars (
 This App only requires [singularity](https://sylabs.io/singularity/) to run. If you don't have singularity, you will need to install following dependencies:
 * ANTs >=2: https://github.com/ANTsX/ANTs
 
-#### MIT Copyright (c) 2020 Bruno Kessler Foundation (FBK)
-
+#### MIT Copyright (c) 2020 brainlife.io The University of Texas at Austin and Indiana University
