@@ -2,7 +2,7 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.448-blue.svg)](https://doi.org/10.25663/brainlife.app.448)
 
 # app-warp-t1
-This App applies the given non-linear warp to the T1 image and to all Diffusion Tensor Image Scalars. WARNING: all the given inputs should be in the same anatomical space.
+This App applies the given non-linear warp to the T1 image and to all Diffusion Tensor Image Scalars. WARNING: all the given inputs should be in the same anatomical space. WARNING: the given non-linear warp must have the affine.txt.
 
 ### Authors
 - Giulia Bertò (giulia.berto.4@gmail.com)
