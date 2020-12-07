@@ -14,6 +14,12 @@ mkdir -p warp_dir
 cp `jq -r '.warp' config.json` warp_dir/warp.nii.gz
 cp `jq -r '.affine' config.json` warp_dir/affine.txt
 
+affine=$(jq -r .affine config.json)
+if [ $affine = "null" ];then
+    echo "ERROR: affine.txt not found, but has to be provided. Process terminated."
+    exit 1
+fi
+
 # Registration
 echo "T1 warping..."
 singularity exec -e docker://brainlife/ants:2.2.0 ./run_t1_registration.sh $t1 warp_dir
