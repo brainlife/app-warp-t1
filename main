@@ -10,15 +10,15 @@ cp `jq -r '.md' config.json` tensor_dir/md.nii.gz
 cp `jq -r '.rd' config.json` tensor_dir/rd.nii.gz
 cp `jq -r '.ad' config.json` tensor_dir/ad.nii.gz
 
-mkdir -p warp_dir
-cp `jq -r '.warp' config.json` warp_dir/warp.nii.gz
-cp `jq -r '.affine' config.json` warp_dir/affine.txt
-
 affine=$(jq -r .affine config.json)
-if [ $affine = "null" ];then
+if [ ! -f "$affine" ]; then
     echo "ERROR: affine.txt not found, but has to be provided. Process terminated."
     exit 1
 fi
+
+mkdir -p warp_dir
+cp `jq -r '.warp' config.json` warp_dir/warp.nii.gz
+cp `jq -r '.affine' config.json` warp_dir/affine.txt
 
 # Registration
 echo "T1 warping..."
