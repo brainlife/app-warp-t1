@@ -2,7 +2,7 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.448-blue.svg)](https://doi.org/10.25663/brainlife.app.448)
 
 # app-warp-t1
-This App applies the given non-linear warp to the T1 image and to all Diffusion Tensor Image Scalars. WARNING: all the given inputs should be in the same anatomical space. WARNING: the given non-linear warp must have the affine.txt.
+This App applies the given non-linear warp to the T1 image and to all Diffusion Tensor Image Scalars. WARNING: T1 and Diffusion Tensor Image Scalars should be in the same anatomical space. WARNING: the given non-linear warp must have the affine.txt.
 
 ### Authors
 - Giulia Bertò (giulia.berto.4@gmail.com)
@@ -31,7 +31,7 @@ We kindly ask that you cite the following articles when publishing papers and co
 You can submit this App online at https://doi.org/10.25663/brainlife.app.448 via the “Execute” tab.
 
 Input: \
-T1 image and Diffusion Tensor Image Scalars (tensor datatype) in the same anatomical space. Up to now, supported scalars are: FA (Fractional Anisotropy), MD (Mean Diffusivity), RD (Radial Diffusivity), and AD (Axial Diffusivity).
+T1 image and Diffusion Tensor Image Scalars (tensor datatype) in the same anatomical space. Up to now, supported scalars are: FA (Fractional Anisotropy), MD (Mean Diffusivity), RD (Radial Diffusivity), and AD (Axial Diffusivity). Finally, the non-linear warp.
 
 Output: \
 T1 image and Diffusion Tensor Image Scalars (tensor datatype) warped.
@@ -46,6 +46,8 @@ T1 image and Diffusion Tensor Image Scalars (tensor datatype) warped.
    "md":    "./tensor/md.nii.gz",
    "rd":    "./tensor/rd.nii.gz",
    "ad":    "./tensor/ad.nii.gz",
+   "warp":    "./warp/warp.nii.gz",
+   "affine":    "./warp/affine.txt"
 } 
 ```
 3. Launch the App by executing `main`.
