@@ -2,6 +2,30 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.448-blue.svg)](https://doi.org/10.25663/brainlife.app.448)
 
 # app-warp-t1
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Applies a given non-linear warp and affine to a T1-weighted image and to FA, MD, RD and AD tensor maps with ANTs WarpImageMultiTransform.**
+
+Warps the T1 and the FA, MD, RD and AD maps with ANTs WarpImageMultiTransform using the provided warp.nii.gz and affine.txt (nearest-neighbour interpolation). Use it to bring a subject's T1 and tensor maps into the space defined by a previously computed non-linear registration. The transform input must contain both the warp and the affine.
+
+Run it on brainlife.io: [https://doi.org/10.25663/brainlife.app.448](https://doi.org/10.25663/brainlife.app.448)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `0` | `neuro/anat/t1w` | yes | T1 image to warp |
+| `1` | `neuro/tensor` | yes | tensor images to warp |
+| `2` | `neuro/transform/nifti` (!linear) | yes | non-linear warp to use for warping. affine.txt must be present; the App exits otherwise. |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `t1_aligned` | `neuro/anat/t1w` | warped T1 |
+| `tensor_aligned` | `neuro/tensor` | warped tensor |
+
+Runtime: container `brainlife/ants:2.2.0`; 4 CPUs; 0.33 h walltime.
+
+<!-- brainlife-app:end -->
+
 This App applies the given non-linear warp to the T1 image and to all Diffusion Tensor Image Scalars. WARNING: all the given inputs should be in the same anatomical space.
 
 ### Authors
